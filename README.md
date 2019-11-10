@@ -6,7 +6,7 @@ All command i learn for docker
 
 Format of new command: **docker \<command> \<sub-command>**
 
-**Image**: binaries + libraries + source code; that all make up your application
+**Image**: binaries + libraries + source code; that all make up your application  
 **Container**: is the running instance of the **image**
 
 | Commands : | Description : |
@@ -29,5 +29,5 @@ Format of new command: **docker \<command> \<sub-command>**
 
 ## Test section
 
->How to run a windows server core container
+>How to run a windows server core container  
 docker run [mcr.microsoft.com/windows/servercore](https://hub.docker.com/_/microsoft-windows-servercore?tab=description):ltsc2019
