@@ -1,5 +1,11 @@
 # DockerCommands
 
+- [DockerCommands](#dockercommands)
+  - [1. Start container](#1-start-container)
+  - [2. Going on container](#2-going-on-container)
+  - [3. Network](#3-network)
+  - [Test labo section](#test-labo-section)
+
 All command i learn for docker
 
 ## 1. Start container
@@ -60,7 +66,7 @@ Example: docker container exec -it mysql bash
 Example: docker container run -it alpine **sh**  
 >bash not provide with alpine, i need to install them
 
-
+## 3. Network
 
 
 
@@ -81,6 +87,7 @@ Example: docker container run -it alpine **sh**
 - **How to run a windows server core container ??**  
 
 Basic: docker run [mcr.microsoft.com/windows/servercore](https://hub.docker.com/_/microsoft-windows-servercore?tab=description):ltsc2019
+Image size: 4.79GB... **wtf ??**
 
 To run a container with Hyper-V isolation, simply add the tag --isolation=hyperv to your docker run command.  
 Last command tested but seems close the container directly:  
