@@ -68,19 +68,38 @@ Example: docker container run -it alpine **sh**
 
 ## 3. Network
 
+Remember: publishing ports is always in **-p** (--publish) **HOST**:**CONTAINER** format.  
 
+| Commands : | Description : |
+| :--------- | :------------ |
+| docker container **port** _[cont_id]_ | Get the port used by the container |
+| docker container **inspect** --format '{{ .NetworkSetings.IPAddress }}' _[cont_id]_ | Get the ip address used by the container |
 
+Virtual network bridge/docker0 by default for all container  
 
+| Commands : | Description : |
+| :--------- | :------------ |
+| docker **network ls \|show** | Default 3 (bridge'nat', host'**Default Switch**', none) |
+| docker network **inspect \|inspect** | Inspect |
+| docker network **create --driver** | Create |
+| docker network **connect** | Connect |
+| docker network **disconnect** | Disconnect |
+| docker network inspect 'Default Switch' <br> docker network inspect nat | Inspect |
 
+- **Example to create a new network in windows container context**
 
+>docker network create my_app_net  
+Error response from daemon: could not find plugin bridge in v1 plugin registry: plugin not found  
+-d, --driver string Driver to manage the Network (default "bridge")  
+docker network create -d nat my_app_net  
 
+- **Example to connect an application to a network**
 
-
-
-
-
-
-
+>docker container run -d --name new_nginx --network my_app_net nginx  
+docker network inspect my_app_net  
+docker network --help  
+docker network connect my_app_net nginx  
+docker network disconnect my_app_net nginx  
 
 ## Test labo section
 
@@ -92,4 +111,3 @@ Image size: 4.79GB... **wtf ??**
 To run a container with Hyper-V isolation, simply add the tag --isolation=hyperv to your docker run command.  
 Last command tested but seems close the container directly:  
 docker run **--isolation=hyperv** mcr.microsoft.com/windows/servercore:ltsc2019 powershell
-
