@@ -27,7 +27,60 @@ Format of new command: **docker \<command> \<sub-command>**
 | docker container **rm 8a7 2a1 c72** | Remove multiple containers |
 | docker container **rm -f 8a7** | Force the removal of a running container (uses SIGKILL) |
 
-## Test section
+## 2. Going on container
 
->How to run a windows server core container  
-docker run [mcr.microsoft.com/windows/servercore](https://hub.docker.com/_/microsoft-windows-servercore?tab=description):ltsc2019
+| Commands : | Description : |
+| :--------- | :------------ |
+| docker container **inspect** --help | Display detailed information on one or more containers |
+| docker container **stats** --help <br> **Ctrl+c** to quit the view | Display a live stream of container(s) resource usage statistics |
+| docker container run **-it** --name proxy nginx **bash** <br>exit | Start a new container interactively |
+
+- Example of interactive container update:
+
+>docker container run -it --name ubuntu ubuntu
+apt-get update
+apt-get install -y curl
+exit
+
+>docker container start -ai ubuntu
+curl google.com
+exit
+
+| Commands : | Description : |
+| :--------- | :------------ |
+| docker container **exec** -it | Run a command in a running container |
+Example: docker container exec -it mysql bash
+
+| Commands : | Description : |
+| :--------- | :------------ |
+| docker pull alpine | Pull an image or a repository from a registry |
+| docker image ls | List images |
+Example: docker container run -it alpine **sh**  
+>bash not provide with alpine, i need to install them
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Test labo section
+
+- **How to run a windows server core container ??**  
+
+Basic: docker run [mcr.microsoft.com/windows/servercore](https://hub.docker.com/_/microsoft-windows-servercore?tab=description):ltsc2019
+
+To run a container with Hyper-V isolation, simply add the tag --isolation=hyperv to your docker run command.  
+Last command tested but seems close the container directly:  
+docker run **--isolation=hyperv** mcr.microsoft.com/windows/servercore:ltsc2019 powershell
+
