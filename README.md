@@ -111,3 +111,33 @@ Image size: 4.79GB... **wtf ??**
 To run a container with Hyper-V isolation, simply add the tag --isolation=hyperv to your docker run command.  
 Last command tested but seems close the container directly:  
 docker run **--isolation=hyperv** mcr.microsoft.com/windows/servercore:ltsc2019 powershell
+
+- **How to install onto ubuntu-18.04.3-desktop-amd64**
+
+sudo apt install curl  
+curl -fsSL get.docker.com -o get-docker.sh  
+sh get-docker.sh  
+
+**Warning about security** but ok on local machine:  
+sudo usermod -aG docker charles  
+sudo docker version  
+
+**Upgrade Compose**: https://github.com/docker/compose/releases  
+>curl -L https://github.com/docker/compose/releases/download/1.25.0-rc4/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+
+**Upgrade Machine**: https://github.com/docker/machine/releases  
+>curl -L https://github.com/docker/machine/releases/download/v0.16.2/docker-machine-`uname -s`-`uname -m` >/tmp/docker-machine &&
+    chmod +x /tmp/docker-machine &&
+    sudo cp /tmp/docker-machine /usr/local/bin/docker-machine
+
+**Remark: get of root** with **sudo -i**
+
+**Check: docker-machine version**
+docker-machine version 0.16.2, build bd45ab13
+
+**Check: docker-compose version**
+docker-compose version 1.25.0-rc4, build 8f3c9c58
+docker-py version: 4.1.0
+CPython version: 3.7.4
+OpenSSL version: OpenSSL 1.1.0l  10 Sep 2019
