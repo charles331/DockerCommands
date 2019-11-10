@@ -37,24 +37,26 @@ Format of new command: **docker \<command> \<sub-command>**
 
 - Example of interactive container update:
 
->docker container run -it --name ubuntu ubuntu
-apt-get update
-apt-get install -y curl
-exit
-
->docker container start -ai ubuntu
-curl google.com
-exit
+>docker container run -it --name ubuntu ubuntu  
+apt-get update  
+apt-get install -y curl  
+exit  
+  
+>docker container start -ai ubuntu  
+curl google.com  
+exit  
 
 | Commands : | Description : |
 | :--------- | :------------ |
 | docker container **exec** -it | Run a command in a running container |
+
 Example: docker container exec -it mysql bash
 
 | Commands : | Description : |
 | :--------- | :------------ |
 | docker pull alpine | Pull an image or a repository from a registry |
 | docker image ls | List images |
+
 Example: docker container run -it alpine **sh**  
 >bash not provide with alpine, i need to install them
 
