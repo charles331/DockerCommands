@@ -4,6 +4,7 @@
   - [1. Start container](#1-start-container)
   - [2. Going on container](#2-going-on-container)
   - [3. Network](#3-network)
+  - [4. Images](#4-images)
   - [Test labo section](#test-labo-section)
 
 All command i learn for docker
@@ -101,7 +102,37 @@ docker network --help
 docker network connect my_app_net nginx  
 docker network disconnect my_app_net nginx  
 
+## 4. Images
+
+What is?
+
+- App binaries/dependencies
+- Metadata about the image data and how to run the image
+- no OS, no kernel
+- small one file (your app binary) or big file (Ubuntu distro with apt)
+
+| Commands : | Description : |
+| :--------- | :------------ |
+| docker **pull nginx:1.16** | pull the [stable version of nginx](https://hub.docker.com/_/nginx) |
+| docker **image ls** | List images |
+
+- Image layers
+- union file system
+- history
+- inspect
+- copy on write
+
+| Commands : | Description : |
+| :--------- | :------------ |
+| docker **image history** | Show the history of an image |
+| docker **image inspect** | [METADATA] Display detailed information on one or more images |
+| docker **image inspect** --format '{{ .ContainerConfig.ExposedPorts }}' cont_id | Get the exposed port of a image |
+
 ## Test labo section
+
+| Commands : | Description : |
+| :--------- | :------------ |
+| code . (in a repo) | Open Visual Studio Code |
 
 - **How to run a windows server core container ??**  
 
@@ -129,15 +160,17 @@ chmod +x /usr/local/bin/docker-compose
 **Upgrade Machine**: https://github.com/docker/machine/releases  
 >curl -L https://github.com/docker/machine/releases/download/v0.16.2/docker-machine-`uname -s`-`uname -m` >/tmp/docker-machine &&
     chmod +x /tmp/docker-machine &&
-    sudo cp /tmp/docker-machine /usr/local/bin/docker-machine
+    sudo cp /tmp/docker-machine /usr/local/bin/docker-machine  
 
-**Remark: get of root** with **sudo -i**
+**Remark: get of root** with **sudo -i**  
 
 **Check: docker-machine version**
-docker-machine version 0.16.2, build bd45ab13
+docker-machine version 0.16.2, build bd45ab13  
 
-**Check: docker-compose version**
-docker-compose version 1.25.0-rc4, build 8f3c9c58
-docker-py version: 4.1.0
-CPython version: 3.7.4
-OpenSSL version: OpenSSL 1.1.0l  10 Sep 2019
+**Check: docker-compose version**  
+docker-compose version 1.25.0-rc4, build 8f3c9c58  
+docker-py version: 4.1.0  
+CPython version: 3.7.4  
+OpenSSL version: OpenSSL 1.1.0l  10 Sep 2019  
+
+**How to customize your Shell** look at [bretfisher shell](https://www.bretfisher.com/shell/)  
