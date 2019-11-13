@@ -5,9 +5,10 @@
   - [2. Going on container](#2-going-on-container)
   - [3. Network](#3-network)
   - [4. Images](#4-images)
+  - [4. Tagging & Pushing](#4-tagging--pushing)
   - [Test labo section](#test-labo-section)
 
-All command i learn for docker
+All commands i learn for docker
 
 ## 1. Start container
 
@@ -127,6 +128,17 @@ What is?
 | docker **image history** | Show the history of an image |
 | docker **image inspect** | [METADATA] Display detailed information on one or more images |
 | docker **image inspect** --format '{{ .ContainerConfig.ExposedPorts }}' cont_id | Get the exposed port of a image |
+
+## 4. Tagging & Pushing
+
+| Commands : | Description : |
+| :--------- | :------------ |
+| docker image tag --help | Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE |
+| docker image tag nginx charles331/nginx | Create my own tag |
+| docker login | Connect to Docker Hub |
+| cat .docker/config.json | See my crypted auth to Docker Hub |
+| docker image push charles331/nginx | Push my own image to my profile on Docker Hub (public) |
+| docker logout | Disconnect to Docker Hub |
 
 ## Test labo section
 
