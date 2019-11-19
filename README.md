@@ -6,6 +6,7 @@
   - [3. Network](#3-network)
   - [4. Images](#4-images)
   - [4. Tagging & Pushing](#4-tagging--pushing)
+  - [5. Docker file](#5-docker-file)
   - [Test labo section](#test-labo-section)
 
 All commands i learn for docker
@@ -139,6 +140,21 @@ What is?
 | cat .docker/config.json | See my crypted auth to Docker Hub |
 | docker image push charles331/nginx | Push my own image to my profile on Docker Hub (public) |
 | docker logout | Disconnect to Docker Hub |
+
+## 5. Docker file
+
+| Commands : | Description : |
+| :--------- | :------------ |
+| docker image **build** --help | Build an image from a Dockerfile |
+| docker image **build** -t customcme . | Build the docker file into the current folder and tag it customcme|
+| docker image **[prune](https://www.youtube.com/watch?v=_4QzP7uwtvI&feature=youtu.be)** | to clean up just "dangling" images |
+| docker **system** prune | will clean up everything |
+| docker image **prune** -a | which will remove all images you're not using |
+| docker **system** df | to see space usage |
+
+
+> Tips: what we change often must be at the end of a docker file
+> Tips: Lastly, realize that if you're using Docker Toolbox, the Linux VM won't auto-shrink. You'll need to delete it and re-create (make sure anything in docker containers or volumes are backed up). You can recreate the toolbox default VM with docker-machine rm default and then docker-machine create
 
 ## Test labo section
 
