@@ -7,6 +7,7 @@
   - [4. Images](#4-images)
   - [4. Tagging & Pushing](#4-tagging--pushing)
   - [5. Docker file](#5-docker-file)
+  - [6. Container Lifetime & Persistent Data](#6-container-lifetime--persistent-data)
   - [Test labo section](#test-labo-section)
 
 All commands i learn for docker
@@ -152,9 +153,32 @@ What is?
 | docker image **prune** -a | which will remove all images you're not using |
 | docker **system** df | to see space usage |
 
-
 > Tips: what we change often must be at the end of a docker file
 > Tips: Lastly, realize that if you're using Docker Toolbox, the Linux VM won't auto-shrink. You'll need to delete it and re-create (make sure anything in docker containers or volumes are backed up). You can recreate the toolbox default VM with docker-machine rm default and then docker-machine create
+
+## 6. Container Lifetime & Persistent Data
+
+- Containers are usually **immutable** and **ephemeral**
+- **Immutable**
+  - only re-deploy containers, never change
+- **Volumes**
+  - Makes special location outside of container UFS
+  - **VOLUME** command in docker file
+- **Bind Mounts**
+  - Link container path to host path
+  - **CONTAINER RUN -v host:container** command only
+  - Maps a host file or dir to a container file or dir
+  - Can't use in Dockerfile, must be at container run
+- https://docs.docker.com/storage/
+
+| Commands : | Description : |
+| :--------- | :------------ |
+| docker volume ls |  |
+| docker volume inspect | |
+| docker container ... -v **namedVolume** | **namedVolume** = mysql-db:/var/lib/mysql |
+| docker volume create --help | set driver and label (see it later) |
+| docker container run -d --name nginx -p 80:80 -v $(pwd):/usr/share/nginx/html nginx |  |
+
 
 ## Test labo section
 
