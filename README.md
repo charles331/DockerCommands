@@ -8,6 +8,7 @@
   - [4. Tagging & Pushing](#4-tagging--pushing)
   - [5. Docker file](#5-docker-file)
   - [6. Container Lifetime & Persistent Data](#6-container-lifetime--persistent-data)
+  - [7. Docker compose and yml file](#7-docker-compose-and-yml-file)
   - [Test labo section](#test-labo-section)
 
 All commands i learn for docker
@@ -179,6 +180,24 @@ What is?
 | docker volume create --help | set driver and label (see it later) |
 | docker container run -d --name nginx -p 80:80 -v $(pwd):/usr/share/nginx/html nginx |  |
 
+## 7. Docker compose and yml file
+
+- YAML formatted file
+  - own version
+  - https://yaml.org/start.html
+- CLI tool docker-compose
+  - use YAML file
+  - docker-compose.yml is default
+  - docker-compose -f to use anotehr one
+  - https://docs.docker.com/compose/compose-file/compose-versioning/
+  - https://github.com/docker/compose/releases
+
+| Commands : | Description : |
+| :--------- | :------------ |
+| docker-compose --help | Info |
+| docker-compose up -d | Setup all |
+| docker-compose down | Stop all |
+| docker-compose logs | All logs |
 
 ## Test labo section
 
